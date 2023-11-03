@@ -8,7 +8,7 @@ import ray
 from pydantic import BaseModel, Field
 from ray.data import Schema
 
-from xmodalitys.schema.entity import Source, Modality, RawStore, SubSlice, Model, RawResourceKind
+from xmodalitys.schema.entity import Source, Modality, RawStore, SubSlice, Model, RawResourceKind, ModelCard
 from xmodalitys.schema.error import XModalitySInternalError, XModalitySCode, XModalitySExternalError
 from xmodalitys.schema.storage import InsertResult, SearchResult
 
@@ -16,7 +16,7 @@ from xmodalitys.schema.storage import InsertResult, SearchResult
 class RegisterModelSpawner(BaseModel):
     name: str | None = Field(default=None, title="register model spawner deployment name")
     app_name: str | None = Field(default=None, title="register model spawner deployment app name")
-    model: Model = Field(title="modality model spawner information")
+    model: ModelCard = Field(title="modality model spawner information")
 
 
 class RegistryGeneralResponse(BaseModel):
